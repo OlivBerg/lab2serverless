@@ -1,0 +1,67 @@
+# Lab 2
+
+## Local Setup
+
+### Step 1: Install or Update Azure Functions Core Tools
+
+1. In Visual Studio Code, press F1 to open the Command Palette
+
+2. Search for and run: Azure Functions: Install or Update Core Tools
+
+3. Wait for the installation to complete
+
+### Step 2: Clone each repo
+
+```git
+git clone <repo>
+```
+
+### Step 3: Create a Virtual Environment
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### Step 4: Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
+### Step 5: Recreate `local.settings.json`
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "DATABASE_CONNECTION_STRING": "<your-connection-string>"
+  }
+}
+```
+
+### Step 6: Start/install Azurite (using npm as package manager)
+
+Install:
+
+```bash
+npm install -g azurite
+```
+
+Start:
+
+```
+azurite --silent --location .azurite --debug .azurite/debug.log
+```
+
+### Step 7: Run the Function
+
+```
+func start
+```
+
+## Demo
+
+[Youtube](https://youtu.be/0ZGASgL-u_Q)
